@@ -1,16 +1,16 @@
 resource "aws_network_interface" "web" {
-  subnet_id       = "subnet-03ddf0d4fd589ae9a"
-  security_groups = ["sg-0dd3a367880737f7a"]
+  subnet_id       = var.subnet_id
+  security_groups = var.security_group
 }
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t2.micro"
+  instance_type = var.type
  network_interface {
     network_interface_id = aws_network_interface.web.id
-    device_index         = 0
+    device_index         = var.device_index
   }
   tags = {
-    Name = "appstellar-gennntt"
+    Name = "${var.instance_name}-${var.enviroment}"
   }
 }
