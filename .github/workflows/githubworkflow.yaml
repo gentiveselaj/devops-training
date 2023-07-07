@@ -20,7 +20,7 @@ jobs:
 
       - name: Build and push image
         run: |
-          cd ./appstellar-ick-training
+          cd ./appsteallar-ick-training
           docker build -f Dockerfile -t webapp .
           # docker tag webapp  ${{ env.AWS_ECR_URI }}:dev
           # ocker push ${{ env.AWS_ECR_URI }}:dev
