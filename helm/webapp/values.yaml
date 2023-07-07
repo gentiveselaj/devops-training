@@ -1,3 +1,4 @@
 namespace: webapp-genti
 configMapName: db-configmap
 secretName: db-secret
+hostname: gent.appstellar.training

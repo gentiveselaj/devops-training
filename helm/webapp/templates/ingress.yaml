@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alb-ingress-gent
+  namespace: {{ .Values.namespace }}
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: "common-alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+
+spec:
+  ingressClassName: alb
+  rules:
+    - host: {{ .Values.hostname }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: my-service
+                port:
+                  number: 80
