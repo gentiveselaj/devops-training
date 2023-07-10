@@ -4,8 +4,9 @@ metadata:
   name: alb-ingress-gent
   namespace: {{ .Values.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: "common-alb"
+    alb.ingress.kubernetes.io/group-name: "common-alb"
     alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/target-type: "ip"
 
 spec:
   ingressClassName: alb
