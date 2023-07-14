@@ -1,6 +1,6 @@
 data "aws_vpc" "this" {
     tags = {
-        enviroment = "dev"
+        Enviroment = "dev"
     }
 
     }
